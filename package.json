@@ -1,0 +1,15 @@
+{
+  "name": "mathgraphs-mcp",
+  "version": "1.0.0",
+  "description": "An agentic MCP for math and statistics graphing, computation, visualization, and validation",
+  "keywords": ["mcp", "math", "graphing", "visualization", "statistics", "plot", "geometry"],
+  "homepage": "https://mathtalking.com",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/architectds/mathgraphs-mcp"
+  },
+  "license": "MIT",
+  "author": "MathTalking",
+  "type": "module",
+  "files": ["mcp.json", "README.md"]
+}

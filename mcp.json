@@ -1,0 +1,52 @@
+{
+  "manifest_version": "0.3",
+  "name": "mathtalking",
+  "version": "1.0.0",
+  "display_name": "MathTalking — Math & Statistics Graphing Engine",
+  "description": "An agentic MCP for math and statistics graphing, computation, visualization, and validation. Plot functions, geometry, histograms, regression, and hypothesis tests. Returns interactive graph URLs with auto-computed results (roots, extrema, intersections, R², p-values). Results are graph-verified, not AI-generated.",
+  "author": {
+    "name": "MathTalking",
+    "url": "https://mathtalking.com"
+  },
+  "homepage": "https://mathtalking.com",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/architectds/mathgraphs-mcp"
+  },
+  "keywords": [
+    "math", "graphing", "visualization", "statistics", "calculator",
+    "plot", "geometry", "histogram", "regression", "function",
+    "interactive", "education", "STEM", "roots", "extrema"
+  ],
+  "license": "MIT",
+  "server": {
+    "transport": "http",
+    "url": "https://mathtalking.com/api/mcp"
+  },
+  "tools": [
+    {
+      "name": "plot_graph",
+      "description": "Plot math functions, points, segments, labels, geometry, and shapes on an interactive graph. Auto-computes roots, extrema, and intersections for plotted functions."
+    },
+    {
+      "name": "compute_stats",
+      "description": "Compute descriptive statistics (mean, median, std, quartiles) from raw data."
+    },
+    {
+      "name": "add_histogram",
+      "description": "Create auto-binned histogram from raw data with visual bars."
+    },
+    {
+      "name": "add_regression",
+      "description": "Fit regression model (linear, quadratic, exponential, power) to data points. Returns R²."
+    },
+    {
+      "name": "fit_distribution",
+      "description": "Fit normal, uniform, or exponential distribution to data. Returns best fit with parameters."
+    },
+    {
+      "name": "test_hypothesis",
+      "description": "Run t-test, paired t-test, or one-sample t-test. Returns p-value with visual rejection region."
+    }
+  ]
+}
