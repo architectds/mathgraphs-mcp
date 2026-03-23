@@ -11,7 +11,7 @@
     {
       "registryType": "npm",
       "identifier": "mathgraphs-mcp",
-      "version": "1.0.1",
+      "version": "1.0.2",
       "transport": {
         "type": "streamable-http",
         "url": "https://mathtalking.com/api/mcp"

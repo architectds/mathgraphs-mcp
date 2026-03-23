@@ -19,7 +19,7 @@ tags:
 
 # Math & Statistics Graphing Engine
 
-You have access to an interactive math and statistics graphing engine via MCP. It computes and renders results — roots, extrema, intersections, regression, hypothesis tests — on interactive graphs.
+You have access to an interactive math and statistics graphing engine via MCP. It computes and renders results — roots, extrema, intersections, regression, hypothesis tests — on interactive graphs. Saves ~410 tokens per render vs LLM-generated canvas code.
 
 ## When to use this skill
 

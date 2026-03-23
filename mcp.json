@@ -3,7 +3,7 @@
   "name": "mathtalking",
   "version": "1.0.0",
   "display_name": "MathTalking — Math & Statistics Graphing Engine",
-  "description": "An agentic MCP for math and statistics graphing, computation, visualization, and validation. Plot functions, geometry, histograms, regression, and hypothesis tests. Returns interactive graph URLs with auto-computed results (roots, extrema, intersections, R², p-values). Results are graph-verified, not AI-generated.",
+  "description": "An agentic MCP for math and statistics graphing, computation, visualization, and validation. Plot functions, geometry, histograms, regression, and hypothesis tests. Returns interactive graph URLs with auto-computed results (roots, extrema, intersections, R², p-values). Results are graph-verified, not AI-generated. Saves ~410 tokens per render vs LLM canvas code.",
   "author": {
     "name": "MathTalking",
     "url": "https://mathtalking.com"
