@@ -1,0 +1,22 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.architectds/mathgraphs-mcp",
+  "description": "Math & statistics graphing, computation, visualization, and validation engine",
+  "repository": {
+    "url": "https://github.com/architectds/mathgraphs-mcp",
+    "source": "github"
+  },
+  "version": "1.0.0",
+  "packages": [
+    {
+      "registryType": "npm",
+      "identifier": "mathgraphs-mcp",
+      "version": "1.0.1",
+      "transport": {
+        "type": "streamable-http",
+        "url": "https://mathtalking.com/api/mcp"
+      },
+      "environmentVariables": []
+    }
+  ]
+}
