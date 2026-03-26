@@ -31,7 +31,17 @@ Plot functions, points, segments, labels, and shapes on an interactive graph. Au
 
 **Supports:** Explicit `y=f(x)`, implicit `x²+y²=1`, parametric `(cos(t),sin(t))`, piecewise, domain restrictions.
 
-**Returns:** Interactive URL with zoom, pan, and sliders.
+**Output formats:** `output` param accepts `"url"` (default, interactive page), `"embed"` (iframe URL), or `"svg"` (vector image as text).
+
+**Returns:** Interactive URL with zoom, pan, and sliders. Or SVG/embed URL depending on `output` param.
+
+### `create_show` — Slideshow
+
+Bundle multiple `plot_graph` results into a slideshow. First create each slide with `plot_graph`, then pass the render IDs here.
+
+**Input:** `title` (string), `slide_ids` (array of render IDs from `plot_graph` results).
+
+**Returns:** Interactive show URL with prev/next navigation, keyboard controls, and auto-play.
 
 ### `compute_stats` — Descriptive Statistics
 
@@ -58,6 +68,7 @@ Run t-test, paired t-test, or one-sample t-test. Returns test statistic, p-value
 - User asks to **graph, plot, or visualize** any math
 - You need to **verify** a mathematical result visually (roots, intersections, extrema)
 - You computed an answer and want to **show it**, not just describe it
+- You need a **multi-step explanation** — create slides with `plot_graph`, bundle with `create_show`
 - Data needs statistical visualization (histogram, regression, distribution fit)
 - Geometry needs precise rendering (triangles, circles, constructions)
 

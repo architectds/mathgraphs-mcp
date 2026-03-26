@@ -1,7 +1,7 @@
 {
   "manifest_version": "0.3",
   "name": "mathtalking",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "display_name": "MathTalking — Math & Statistics Graphing Engine",
   "description": "An agentic MCP for math and statistics graphing, computation, visualization, and validation. Plot functions, geometry, histograms, regression, and hypothesis tests. Returns interactive graph URLs with auto-computed results (roots, extrema, intersections, R², p-values). Results are graph-verified, not AI-generated. Saves ~410 tokens per render vs LLM canvas code.",
   "author": {
@@ -47,6 +47,10 @@
     {
       "name": "test_hypothesis",
       "description": "Run t-test, paired t-test, or one-sample t-test. Returns p-value with visual rejection region."
+    },
+    {
+      "name": "create_show",
+      "description": "Bundle multiple plot_graph results into a slideshow. Returns URL to an interactive presentation with prev/next navigation."
     }
   ]
 }
