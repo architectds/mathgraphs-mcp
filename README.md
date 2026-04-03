@@ -31,7 +31,13 @@ Plot functions, points, segments, labels, and shapes on an interactive graph. Au
 
 **Supports:** Explicit `y=f(x)`, implicit `x²+y²=1`, parametric `(cos(t),sin(t))`, piecewise, domain restrictions.
 
-**Output formats:** `output` param accepts `"url"` (default, interactive page), `"embed"` (iframe URL), or `"svg"` (vector image as text).
+**Optional params:**
+- `viewport` — `{xmin, xmax, ymin, ymax}` to set coordinate range
+- `title` — graph title
+- `summary` — frosted glass overlay text on the graph
+- `gridStyle` — `"polar"` (concentric circles + radial lines), `"axes"` (axes only, no grid), `"none"` (clean canvas). Default: rectangular grid.
+- `output` — `"url"` (default, interactive page), `"embed"` (iframe URL), or `"svg"` (vector image as text)
+- `animations` — array of `{tool, name, min, max}` for animated parameters
 
 **Returns:** Interactive URL with zoom, pan, and sliders. Or SVG/embed URL depending on `output` param.
 
