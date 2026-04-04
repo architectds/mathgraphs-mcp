@@ -1,7 +1,7 @@
 {
   "manifest_version": "0.3",
   "name": "mathtalking",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "display_name": "MathTalking — Math & Statistics Graphing Engine",
   "description": "An agentic MCP for math and statistics graphing, computation, visualization, and validation. Plot functions, geometry, histograms, regression, and hypothesis tests. Returns interactive graph URLs with auto-computed results (roots, extrema, intersections, R², p-values). Results are graph-verified, not AI-generated. Saves ~410 tokens per render vs LLM canvas code.",
   "author": {
@@ -26,7 +26,7 @@
   "tools": [
     {
       "name": "plot_graph",
-      "description": "Plot math functions, points, segments, labels, geometry, and shapes on an interactive graph. Auto-computes roots, extrema, and intersections. Supports gridStyle: 'polar' (concentric circles), 'axes' (axes only), 'none' (clean canvas)."
+      "description": "Plot math functions, points, segments, labels, geometry, and shapes on an interactive graph. Auto-computes roots, extrema, and intersections. Supports gridStyle: 'polar'/'axes'/'none', theme: 'default'/'terminal'/'wallstreet'/'science'/'finance', and looping animations."
     },
     {
       "name": "compute_stats",

@@ -1,6 +1,6 @@
 {
   "name": "mathgraphs-mcp",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "mcpName": "io.github.architectds/mathgraphs-mcp",
   "description": "An agentic MCP for math and statistics graphing, computation, visualization, and validation",
   "keywords": ["mcp", "math", "graphing", "visualization", "statistics", "plot", "geometry"],

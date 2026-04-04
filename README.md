@@ -37,7 +37,8 @@ Plot functions, points, segments, labels, and shapes on an interactive graph. Au
 - `summary` — frosted glass overlay text on the graph
 - `gridStyle` — `"polar"` (concentric circles + radial lines), `"axes"` (axes only, no grid), `"none"` (clean canvas). Default: rectangular grid.
 - `output` — `"url"` (default, interactive page), `"embed"` (iframe URL), or `"svg"` (vector image as text)
-- `animations` — array of `{tool, name, min, max}` for animated parameters
+- `animations` — array of `{tool, name, from, to, loop}` for animated parameters. `tool: "animate_parameter"` with `loop: true` creates a continuous bounce animation.
+- `theme` — `"default"`, `"terminal"`, `"wallstreet"`, `"science"`, or `"finance"`. Visual theme applied to the graph.
 
 **Returns:** Interactive URL with zoom, pan, and sliders. Or SVG/embed URL depending on `output` param.
 
