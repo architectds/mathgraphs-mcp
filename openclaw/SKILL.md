@@ -1,7 +1,7 @@
 ---
 name: mathgraphs
-version: 1.0.0
-description: "Math & statistics graphing, computation, visualization and validation engine"
+version: 1.1.0
+description: "Math graphing, statistics, 3D scene building, computation, and visualization engine"
 author: MathTalking
 homepage: https://mathtalking.com
 mcp_servers:
@@ -15,11 +15,13 @@ tags:
   - education
   - plot
   - geometry
+  - 3D
+  - text-to-3D
 ---
 
-# Math & Statistics Graphing Engine
+# Math, Statistics & 3D Graphing Engine
 
-You have access to an interactive math and statistics graphing engine via MCP. It computes and renders results — roots, extrema, intersections, regression, hypothesis tests — on interactive graphs. Saves ~410 tokens per render vs LLM-generated canvas code.
+You have access to an interactive math, statistics, and 3D graphing engine via MCP. It computes and renders results — roots, extrema, intersections, regression, hypothesis tests, and 3D scenes — on interactive graphs. Saves ~410 tokens per render vs LLM-generated canvas code.
 
 ## When to use this skill
 
@@ -28,6 +30,7 @@ You have access to an interactive math and statistics graphing engine via MCP. I
 - You computed an answer and want to **show** it, not just describe it
 - Data needs statistical visualization (histogram, regression, distribution fit)
 - Geometry needs precise rendering (triangles, circles, constructions)
+- User wants to **build 3D scenes** — describe objects, architecture, abstract art
 
 ## Tools
 
@@ -56,6 +59,17 @@ Input: array of numbers. Fits normal/uniform/exponential. Returns best fit.
 
 ### `test_hypothesis` — Hypothesis Test
 Input: data groups + test type. Returns p-value with visual rejection region.
+
+### `plot_3d` — 3D Scene Builder
+Place meshes (cube, sphere, cylinder, cone, tetrahedron, torus, prism, etc.), lines, and labels in 3D space. Returns interactive URL with orbit controls.
+
+Element types:
+- `mesh`: shape + position [x,y,z] + rotation [rx,ry,rz] + color
+- `line3d`: from [x,y,z] to [x,y,z]
+- `label3d`: text at position [x,y,z]
+
+### `create_show` — Slideshow
+Bundle multiple plot_graph results into a presentation with prev/next navigation.
 
 ## Important
 

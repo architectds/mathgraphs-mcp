@@ -6,12 +6,12 @@
     "url": "https://github.com/architectds/mathgraphs-mcp",
     "source": "github"
   },
-  "version": "1.3.0",
+  "version": "1.4.0",
   "packages": [
     {
       "registryType": "npm",
       "identifier": "mathgraphs-mcp",
-      "version": "1.3.0",
+      "version": "1.4.0",
       "transport": {
         "type": "streamable-http",
         "url": "https://mathtalking.com/api/mcp"
