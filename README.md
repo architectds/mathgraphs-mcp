@@ -10,30 +10,13 @@ MathTalking computes and renders interactive visualizations. Plot 2D functions, 
 
 ### Claude Desktop
 
-Add to Settings → Integrations → Add Connector:
+Settings → Connectors → Add custom connector → paste:
 
 ```
 https://mathtalking.com/api/mcp
 ```
 
 No account or API key needed.
-
-### Claude Desktop (config file via mcp-remote)
-
-```json
-{
-  "mcpServers": {
-    "mathtalking": {
-      "command": "npx",
-      "args": ["mcp-remote", "https://mathtalking.com/api/mcp"]
-    }
-  }
-}
-```
-
-Requires Node.js installed. Config location:
-- macOS: `~/Library/Application Support/Claude/claude_desktop_config.json`
-- Windows: `%APPDATA%\Claude\claude_desktop_config.json`
 
 ### Claude Code
 
