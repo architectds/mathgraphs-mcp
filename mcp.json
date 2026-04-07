@@ -31,7 +31,11 @@
     },
     {
       "name": "plot_3d",
-      "description": "Create interactive 3D scenes from geometric primitives. Place meshes (cube, sphere, cylinder, cone, tetrahedron, torus, prism, and more), lines, and labels in 3D space with position, rotation, color, and opacity. Returns interactive URL with orbit controls."
+      "description": "Create interactive 3D scenes with shapes, lights, and particle effects. 11 mesh shapes, 3 light types (point/spot/directional), 5 particle presets (fire/smoke/rain/snow/sparkle). Material params (metalness/roughness/wireframe). Incremental building: base_render_id to extend existing scenes, remove_indices to edit. Returns interactive URL with orbit controls."
+    },
+    {
+      "name": "get_3d",
+      "description": "Retrieve the element list of an existing 3D render by ID. Use before base_render_id to inspect what a scene contains. Returns all elements with their properties."
     },
     {
       "name": "create_show",

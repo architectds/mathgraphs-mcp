@@ -66,13 +66,15 @@ Plot functions, points, segments, labels, and shapes on an interactive graph. Au
 
 ### `plot_3d` — 3D Scene Builder
 
-Create interactive 3D scenes from geometric primitives. Build anything — snowmen, houses, robots, geometry.
+Create interactive 3D scenes with shapes, lights, and particle effects. Build anything — snowmen, castles, robots, geometry.
 
 **Input:** Array of elements, each with a `type` and type-specific fields:
 
 | Type | Fields | Example |
 |---|---|---|
-| `mesh` | `shape` (required), `color`, `opacity`, `position` [x,y,z], `rotation` [rx,ry,rz] | `{"type":"mesh", "shape":"sphere", "r":1, "color":"#f0f0f0", "position":[0,1,0]}` |
+| `mesh` | `shape` (required), `color`, `opacity`, `position`, `rotation`, `metalness`, `roughness`, `wireframe` | `{"type":"mesh", "shape":"sphere", "r":1, "metalness":0.8, "position":[0,1,0]}` |
+| `light` | `kind` (point/spot/directional), `color`, `intensity`, `position` | `{"type":"light", "kind":"point", "color":"#ff8800", "position":[0,5,0]}` |
+| `particle` | `preset` (fire/smoke/rain/snow/sparkle), `position`, `count`, `spread` | `{"type":"particle", "preset":"fire", "position":[3,0,0]}` |
 | `line3d` | `from` [x,y,z], `to` [x,y,z], `color` | `{"type":"line3d", "from":[0,0,0], "to":[1,1,1]}` |
 | `label3d` | `text`, `position` [x,y,z] | `{"type":"label3d", "text":"origin", "position":[0,0,0]}` |
 
@@ -80,9 +82,23 @@ Create interactive 3D scenes from geometric primitives. Build anything — snowm
 
 **Shape params:** cube→size, box→width/height/depth, sphere→r, cylinder→r/h, cone→r/h, torus→r/tube, prism→points/h
 
+**Material params:** metalness (0=plastic, 1=chrome), roughness (0=mirror, 1=matte), wireframe (boolean)
+
+**Incremental building:**
+- `base_render_id` — build on an existing scene (appends elements, creates new URL)
+- `remove_indices` — remove elements by index from base (use `get_3d` to see indices)
+
 **Optional:** `title`, `summary`, `camera` `{position: [x,y,z], target: [x,y,z]}`
 
 **Returns:** Interactive 3D URL with orbit controls (rotate, zoom, pan). Embed URL included.
+
+### `get_3d` — Inspect 3D Scene
+
+Retrieve the full element list of an existing 3D render by ID. Use this before `base_render_id` to see what a scene contains and plan modifications.
+
+**Input:** `render_id` (the short alphanumeric ID from the URL)
+
+**Returns:** All elements with their properties (shapes, positions, colors, materials).
 
 ### `create_show` — Slideshow Presentations
 

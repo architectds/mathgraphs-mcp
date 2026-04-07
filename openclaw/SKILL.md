@@ -1,7 +1,7 @@
 ---
 name: mathgraphs
-version: 1.1.0
-description: "Math graphing, statistics, 3D scene building, computation, and visualization engine"
+version: 2.0.0
+description: "Math graphing, 3D scene building with lights and particles, and presentations"
 author: MathTalking
 homepage: https://mathtalking.com
 mcp_servers:
@@ -10,27 +10,27 @@ mcp_servers:
 tags:
   - math
   - graphing
-  - statistics
   - visualization
   - education
   - plot
   - geometry
   - 3D
   - text-to-3D
+  - particles
+  - lighting
 ---
 
-# Math, Statistics & 3D Graphing Engine
+# Math & 3D Graphing Engine
 
-You have access to an interactive math, statistics, and 3D graphing engine via MCP. It computes and renders results — roots, extrema, intersections, regression, hypothesis tests, and 3D scenes — on interactive graphs. Saves ~410 tokens per render vs LLM-generated canvas code.
+You have access to an interactive math and 3D graphing engine via MCP. It computes and renders results — roots, extrema, intersections, and 3D scenes — on interactive graphs. Saves ~410 tokens per render vs LLM-generated canvas code.
 
 ## When to use this skill
 
 - User asks to **graph**, **plot**, or **visualize** any math
 - User needs to **verify** a mathematical result visually
 - You computed an answer and want to **show** it, not just describe it
-- Data needs statistical visualization (histogram, regression, distribution fit)
 - Geometry needs precise rendering (triangles, circles, constructions)
-- User wants to **build 3D scenes** — describe objects, architecture, abstract art
+- User wants to **build 3D scenes** — shapes, architecture, creative builds with lighting and particle effects
 
 ## Tools
 
@@ -44,29 +44,24 @@ Element types:
 - `label`: text at position (x, y)
 - `triangle`: three vertices (x1,y1,x2,y2,x3,y3)
 - `box`: edge + height for bar charts
-
-### `compute_stats` — Descriptive Statistics
-Input: array of numbers. Returns mean, median, std, min, max, quartiles.
-
-### `add_histogram` — Histogram
-Input: array of numbers. Auto-bins and draws bars.
-
-### `add_regression` — Regression
-Input: array of {x,y} points. Fits linear/quadratic/exponential/power. Returns R².
-
-### `fit_distribution` — Distribution Fitting
-Input: array of numbers. Fits normal/uniform/exponential. Returns best fit.
-
-### `test_hypothesis` — Hypothesis Test
-Input: data groups + test type. Returns p-value with visual rejection region.
+- `circle`: center (cx,cy) + radius
 
 ### `plot_3d` — 3D Scene Builder
-Place meshes (cube, sphere, cylinder, cone, tetrahedron, torus, prism, etc.), lines, and labels in 3D space. Returns interactive URL with orbit controls.
+Build interactive 3D scenes with shapes, lights, and particle effects. Supports incremental building.
 
 Element types:
-- `mesh`: shape + position [x,y,z] + rotation [rx,ry,rz] + color
+- `mesh`: 11 shapes (cube, box, sphere, cylinder, cone, tetrahedron, octahedron, dodecahedron, icosahedron, torus, prism) + material params (metalness, roughness, wireframe)
+- `light`: point, spot, or directional with color/intensity
+- `particle`: 5 presets (fire, smoke, rain, snow, sparkle)
 - `line3d`: from [x,y,z] to [x,y,z]
 - `label3d`: text at position [x,y,z]
+
+Incremental building:
+- `base_render_id`: build on existing scene (creates new URL, base unchanged)
+- `remove_indices`: remove elements by index from base scene
+
+### `get_3d` — Inspect 3D Scene
+Retrieve element list of an existing 3D render by ID. Use before base_render_id to see what a scene contains.
 
 ### `create_show` — Slideshow
 Bundle multiple plot_graph results into a presentation with prev/next navigation.
