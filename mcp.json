@@ -1,9 +1,9 @@
 {
   "manifest_version": "0.3",
   "name": "mathtalking",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "display_name": "MathTalking — Interactive Math Graphs & 3D Scenes",
-  "description": "MCP server for interactive math graphing, 3D scene building, and presentations. Plot functions (explicit, implicit, parametric, polar), build 3D scenes from 11 geometric primitives, and create slideshows. Returns interactive URLs — zoom, pan, rotate. Mathematically precise, not AI-generated. Zero install, browser-native.",
+  "description": "MCP server for interactive math graphing, 3D scene building, and presentations. Plot functions (explicit, implicit, parametric, polar), build 3D scenes from 11 mesh shapes + 36 compound presets + mathematical surfaces z=f(x,y), and create slideshows. Returns interactive URLs with inline PNG thumbnails. Mathematically precise, not AI-generated. Zero install, browser-native.",
   "author": {
     "name": "MathTalking",
     "url": "https://mathtalking.com"
@@ -31,7 +31,7 @@
     },
     {
       "name": "plot_3d",
-      "description": "Create interactive 3D scenes with shapes, lights, and particle effects. 11 mesh shapes, 3 light types (point/spot/directional), 5 particle presets (fire/smoke/rain/snow/sparkle). Material params (metalness/roughness/wireframe). Incremental building: base_render_id to extend existing scenes, remove_indices to edit. Returns interactive URL with orbit controls."
+      "description": "Create interactive 3D scenes with shapes, surfaces z=f(x,y), lights, particles, water, and 36 compound presets (buildings, vehicles, nature, furniture, characters). Color-driven building styles (red=Chinese, blue=modern, yellow=cozy, green=eco, brown=rustic). Returns interactive URL with inline PNG thumbnail. Supports animation (spin/bounce/orbit/waypoint/follow), physics, WASD player controls, and skybox presets."
     },
     {
       "name": "get_3d",

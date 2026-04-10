@@ -73,24 +73,35 @@ Create interactive 3D scenes with shapes, lights, and particle effects. Build an
 | Type | Fields | Example |
 |---|---|---|
 | `mesh` | `shape` (required), `color`, `opacity`, `position`, `rotation`, `metalness`, `roughness`, `wireframe` | `{"type":"mesh", "shape":"sphere", "r":1, "metalness":0.8, "position":[0,1,0]}` |
+| `compound` | `compound` (required), `position`, `scale`, `color` | `{"type":"compound", "compound":"house", "color":"#cc2222", "position":[0,0,0]}` |
+| `surface` | `expression` (required), `color`, `xmin`, `xmax`, `ymin`, `ymax`, `resolution` | `{"type":"surface", "expression":"sin(x)*cos(y)", "color":"#4A90D9"}` |
 | `light` | `kind` (point/spot/directional), `color`, `intensity`, `position` | `{"type":"light", "kind":"point", "color":"#ff8800", "position":[0,5,0]}` |
-| `particle` | `preset` (fire/smoke/rain/snow/sparkle), `position`, `count`, `spread` | `{"type":"particle", "preset":"fire", "position":[3,0,0]}` |
+| `particle` | `preset` (fire/smoke/rain/snow/sparkle/mist/splash), `position`, `count`, `spread` | `{"type":"particle", "preset":"fire", "position":[3,0,0]}` |
+| `water` | `position`, `size`, `waveHeight`, `color`, `opacity` | `{"type":"water", "position":[0,0,0], "size":10}` |
 | `line3d` | `from` [x,y,z], `to` [x,y,z], `color` | `{"type":"line3d", "from":[0,0,0], "to":[1,1,1]}` |
 | `label3d` | `text`, `position` [x,y,z] | `{"type":"label3d", "text":"origin", "position":[0,0,0]}` |
 
 **11 mesh shapes:** cube, box, sphere, cylinder, cone, tetrahedron, octahedron, dodecahedron, icosahedron, torus, prism
 
+**36 compound presets:** tree, house, castle_tower, fence, campfire, rock, stairs, arch, table, chair, person, car, road_sign, windmill, dog, cat, flag, bed, sofa, bookshelf, lamp, desk, bush, flower, bridge, lamp_post, bench, apartment, skyscraper, shopping_center, hospital, ambulance, truck, boat, traffic_light, water_tower, fountain
+
+**Color-driven building styles:** Buildings change architectural style based on color — red=Chinese, blue=modern, yellow=cozy, green=eco, brown=rustic. The actual hex color is used for materials; the hue just selects the geometry variant.
+
 **Shape params:** cube→size, box→width/height/depth, sphere→r, cylinder→r/h, cone→r/h, torus→r/tube, prism→points/h
 
 **Material params:** metalness (0=plastic, 1=chrome), roughness (0=mirror, 1=matte), wireframe (boolean)
+
+**Animation:** `animate: {type, speed, ...}` — spin, bounce, orbit, waypoint, follow (tracks player)
+
+**Physics & controls:** `physics: {velocity, mass}`, `controls: {type:"wasd", speed}`, `collision: true`
 
 **Incremental building:**
 - `base_render_id` — build on an existing scene (appends elements, creates new URL)
 - `remove_indices` — remove elements by index from base (use `get_3d` to see indices)
 
-**Optional:** `title`, `summary`, `camera` `{position: [x,y,z], target: [x,y,z]}`
+**Optional:** `title`, `summary`, `camera` `{position, target}`, `skybox` (day/sunset/night/overcast), `gravity` (-9.8), `follow` (boolean)
 
-**Returns:** Interactive 3D URL with orbit controls (rotate, zoom, pan). Embed URL included.
+**Returns:** Interactive 3D URL with orbit controls + inline PNG thumbnail for chat preview.
 
 ### `get_3d` — Inspect 3D Scene
 
@@ -111,8 +122,9 @@ Bundle multiple `plot_graph` results into a slideshow. Create each slide with `p
 ## Example Prompts
 
 1. **"Plot x³ - 3x + 1 and show me its roots and extrema"** → Interactive graph with computed roots (x ≈ -1.88, 0.35, 1.53) and extrema
-2. **"Build a snowman with a hat, carrot nose, and three buttons"** → Interactive 3D scene with orbit controls
-3. **"Create a 3-slide show: y=x², y=x²+2 shifted up, y=(x-3)² shifted right"** → Slideshow URL with navigation
+2. **"Build a village with a red house, trees, and a campfire"** → 3D scene with Chinese-style house (red color triggers Chinese variant), PNG thumbnail in chat
+3. **"Plot the surface z = sin(x) * cos(y)"** → Interactive 3D surface plot with orbit controls
+4. **"Create a 3-slide show: y=x², y=x²+2 shifted up, y=(x-3)² shifted right"** → Slideshow URL with navigation
 
 ## When to Use
 
