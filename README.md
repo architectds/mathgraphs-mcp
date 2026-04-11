@@ -80,6 +80,7 @@ Create interactive 3D scenes with shapes, lights, and particle effects. Build an
 | `water` | `position`, `size`, `waveHeight`, `color`, `opacity` | `{"type":"water", "position":[0,0,0], "size":10}` |
 | `line3d` | `from` [x,y,z], `to` [x,y,z], `color` | `{"type":"line3d", "from":[0,0,0], "to":[1,1,1]}` |
 | `label3d` | `text`, `position` [x,y,z] | `{"type":"label3d", "text":"origin", "position":[0,0,0]}` |
+| `text3d` | `text`, `position` [x,y,z], `color`, `fontSize` | `{"type":"text3d", "text":"HELLO", "position":[0,2,0], "color":"#ff0000", "fontSize":1}` |
 
 **11 mesh shapes:** cube, box, sphere, cylinder, cone, tetrahedron, octahedron, dodecahedron, icosahedron, torus, prism
 

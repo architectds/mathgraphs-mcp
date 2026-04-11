@@ -31,7 +31,7 @@
     },
     {
       "name": "plot_3d",
-      "description": "Create interactive 3D scenes with shapes, surfaces z=f(x,y), lights, particles, water, and 36 compound presets (buildings, vehicles, nature, furniture, characters). Color-driven building styles (red=Chinese, blue=modern, yellow=cozy, green=eco, brown=rustic). Returns interactive URL with inline PNG thumbnail. Supports animation (spin/bounce/orbit/waypoint/follow), physics, WASD player controls, and skybox presets."
+      "description": "Create interactive 3D scenes with shapes, surfaces z=f(x,y), lights, particles, water, text3d (extruded 3D block letters, CJK supported), and 36 compound presets (buildings, vehicles, nature, furniture, characters). Color-driven building styles (red=Chinese, blue=modern, yellow=cozy, green=eco, brown=rustic). Returns interactive URL with inline PNG thumbnail. Supports animation (spin/bounce/orbit/waypoint/follow), physics, WASD player controls, and skybox presets."
     },
     {
       "name": "get_3d",
