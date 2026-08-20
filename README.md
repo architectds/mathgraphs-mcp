@@ -44,7 +44,7 @@ Plot functions, points, segments, labels, and shapes on an interactive graph. Au
 | Type | Fields | Example |
 |---|---|---|
 | `function` | `expression` (required), `color` | `{"type":"function", "expression":"x^2-4", "color":"#4A90D9"}` |
-| `points` | `points` [{x,y}] (required), `color`, `label` | `{"type":"points", "points":[{"x":2,"y":0}], "label":"root"}` |
+| `points` | `points` [{x,y}] or [[x,y]] (required), `color`, `label` | `{"type":"points", "points":[{"x":2,"y":0}], "label":"root"}` |
 | `segment` | `x1,y1,x2,y2` (required), `color`, `label`, `arrow`, `dashed` | `{"type":"segment", "x1":0, "y1":0, "x2":3, "y2":4, "label":"hypotenuse"}` |
 | `label` | `text` (required), `x,y` (required), `color`, `fontSize` | `{"type":"label", "text":"vertex", "x":0, "y":-4}` |
 | `triangle` | `x1,y1,x2,y2,x3,y3` (required), `color`, `opacity`, `border` | `{"type":"triangle", "x1":0, "y1":0, "x2":3, "y2":0, "x3":3, "y3":4}` |
@@ -54,7 +54,7 @@ Plot functions, points, segments, labels, and shapes on an interactive graph. Au
 **Supports:** Explicit `y=f(x)`, implicit `x²+y²=1`, parametric `(cos(t),sin(t))`, polar, piecewise, domain restrictions.
 
 **Optional params:**
-- `viewport` — `{xmin, xmax, ymin, ymax}` to set coordinate range
+- `viewport` — `{xmin, xmax, ymin, ymax}`. Set it to your data's own magnitude; values far outside the range are invisible. Omit it and the server auto-fits the window to your elements.
 - `title` — graph title
 - `summary` — frosted glass overlay text on the graph
 - `gridStyle` — `"polar"` (concentric circles + radial lines), `"axes"` (axes only), `"none"` (clean canvas)
@@ -63,6 +63,30 @@ Plot functions, points, segments, labels, and shapes on an interactive graph. Au
 - `theme` — `"default"`, `"terminal"`, `"wallstreet"`, `"science"`, or `"finance"`
 
 **Returns:** Interactive URL with zoom, pan, and sliders. Auto-computed roots, extrema, and intersections in the response text.
+
+### `analyze` — Precise Numerical Results
+
+Compute exact values with the graph engine instead of doing the arithmetic in the model. Returns numbers, not a picture.
+
+**Input:** `type` (required) and `f` (required), plus whichever fields that analysis needs:
+
+| `type` | Extra fields | Returns |
+|---|---|---|
+| `roots` | `a`, `b` (range, default -10..10) | x-values where f crosses zero |
+| `extrema` | `a`, `b` | local minima and maxima |
+| `inflections` | `a`, `b` | points where concavity flips |
+| `intersect` | `g` (second expression), `a`, `b` | where f and g cross |
+| `tangent` | `x` (point of interest) | tangent line at x |
+| `normal` | `x` | normal line at x |
+| `derivative` | `x` | f'(x) |
+| `integral` | `a`, `b` | definite integral over [a, b] |
+| `area_between` | `g`, `a`, `b` | area between the two curves |
+| `arc_length` | `a`, `b` | curve length over [a, b] |
+| `closest_point` | `px`, `py` | point on f nearest to (px, py) |
+
+**Supports:** explicit, parametric, polar, and implicit curves. For parametric curves `x` is the t value.
+
+**Example:** `{"type":"intersect", "f":"x^2-4", "g":"2x-1"}`
 
 ### `plot_3d` — 3D Scene Builder
 

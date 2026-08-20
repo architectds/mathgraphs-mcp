@@ -46,6 +46,15 @@ Element types:
 - `box`: edge + height for bar charts
 - `circle`: center (cx,cy) + radius
 
+Set `viewport` ({xmin, xmax, ymin, ymax}) to your data's magnitude — omit it and the server auto-fits the window to the elements.
+
+### `analyze` — Precise Numerical Results
+Compute exact values instead of doing the arithmetic yourself: `roots`, `extrema`, `inflections`, `intersect`, `tangent`, `normal`, `derivative`, `integral`, `area_between`, `arc_length`, `closest_point`.
+
+Input: `type` (required), `f` (required), plus `g` (second expression, for intersect/area_between), `x` (point of interest, for tangent/normal/derivative), `a`/`b` (range, default -10..10), `px`/`py` (for closest_point).
+
+Works with explicit, parametric, polar, and implicit curves.
+
 ### `plot_3d` — 3D Scene Builder
 Build interactive 3D scenes with shapes, lights, and particle effects. Supports incremental building.
 
@@ -71,4 +80,5 @@ Bundle multiple plot_graph results into a presentation with prev/next navigation
 - All tools return an **interactive URL** — always share it with the user
 - The graph is **live**: user can zoom, pan, add functions, adjust sliders
 - Results are **computed from the graph**, not generated — no hallucinated curves
+- Use `analyze` for exact numbers (roots, intersections, integrals) rather than computing them yourself
 - Supports 9 languages: en, zh, zh-TW, ja, ko, es, fr, de, pt-BR

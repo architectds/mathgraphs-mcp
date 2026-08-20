@@ -1,7 +1,7 @@
 {
   "manifest_version": "0.3",
   "name": "mathtalking",
-  "version": "2.1.0",
+  "version": "2.3.0",
   "display_name": "MathTalking — Interactive Math Graphs & 3D Scenes",
   "description": "MCP server for interactive math graphing, 3D scene building, and presentations. Plot functions (explicit, implicit, parametric, polar), build 3D scenes from 11 mesh shapes + 36 compound presets + mathematical surfaces z=f(x,y), and create slideshows. Returns interactive URLs with inline PNG thumbnails. Mathematically precise, not AI-generated. Zero install, browser-native.",
   "author": {
@@ -27,7 +27,11 @@
   "tools": [
     {
       "name": "plot_graph",
-      "description": "Plot math functions, points, segments, labels, geometry, and shapes on an interactive graph. Auto-computes roots, extrema, and intersections. Supports gridStyle: 'polar'/'axes'/'none', theme: 'default'/'terminal'/'wallstreet'/'science'/'finance', and looping animations."
+      "description": "Plot math functions, points, segments, labels, geometry, and shapes on an interactive graph. Auto-computes roots, extrema, and intersections, and auto-fits the viewport to your data when none is given. Supports gridStyle: 'polar'/'axes'/'none', theme: 'default'/'terminal'/'wallstreet'/'science'/'finance', and looping animations."
+    },
+    {
+      "name": "analyze",
+      "description": "Get precise numerical results for functions: roots, extrema, inflections, intersections, tangent/normal lines, derivatives, integrals, area between curves, arc length, closest point. Computed server-side by the graph engine — exact answers, not LLM arithmetic. Works with explicit, parametric, polar, and implicit curves."
     },
     {
       "name": "plot_3d",
