@@ -48,12 +48,20 @@ Element types:
 
 Set `viewport` ({xmin, xmax, ymin, ymax}) to your data's magnitude — omit it and the server auto-fits the window to the elements.
 
+Iterate with `base_render_id` (+ `remove_indices`) rather than re-sending every element. Each result reports what actually rendered, so act on any graph check it returns.
+
 ### `analyze` — Precise Numerical Results
 Compute exact values instead of doing the arithmetic yourself: `roots`, `extrema`, `inflections`, `intersect`, `tangent`, `normal`, `derivative`, `integral`, `area_between`, `arc_length`, `closest_point`.
 
 Input: `type` (required), `f` (required), plus `g` (second expression, for intersect/area_between), `x` (point of interest, for tangent/normal/derivative), `a`/`b` (range, default -10..10), `px`/`py` (for closest_point).
 
 Works with explicit, parametric, polar, and implicit curves.
+
+Linear algebra (pass `matrix` instead of `f`): `solve_system` (with `vector`), `determinant`, `inverse`, `transpose`, `rank`, `multiply` (with `matrix2`). solve_system reports unique / none / infinitely many solutions.
+
+
+### `get_graph` — Inspect a Graph
+Read back the elements and viewport of an existing 2D render by ID. Element indices come back in order — pass them to `remove_indices` to modify a graph instead of rebuilding it.
 
 ### `plot_3d` — 3D Scene Builder
 Build interactive 3D scenes with shapes, lights, and particle effects. Supports incremental building.

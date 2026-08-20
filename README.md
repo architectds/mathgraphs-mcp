@@ -61,14 +61,16 @@ Plot functions, points, segments, labels, and shapes on an interactive graph. Au
 - `output` — `"url"` (default, interactive page), `"embed"` (iframe URL), or `"svg"` (vector image)
 - `animations` — array of `{tool, name, from, to, loop}` for animated parameters
 - `theme` — `"default"`, `"terminal"`, `"wallstreet"`, `"science"`, or `"finance"`
+- `base_render_id` — build on an existing render instead of re-sending every element
+- `remove_indices` — drop elements from the base render by index (see `get_graph`)
 
-**Returns:** Interactive URL with zoom, pan, and sliders. Auto-computed roots, extrema, and intersections in the response text.
+**Returns:** Interactive URL with zoom, pan, and sliders. Auto-computed roots, extrema, and intersections in the response text, plus a graph check reporting anything that did not render properly — unreadable expressions, off-screen elements, duplicates, or a blank graph.
 
 ### `analyze` — Precise Numerical Results
 
 Compute exact values with the graph engine instead of doing the arithmetic in the model. Returns numbers, not a picture.
 
-**Input:** `type` (required) and `f` (required), plus whichever fields that analysis needs:
+**Input:** `type` (required). Function analyses also need `f`; linear-algebra analyses need `matrix` instead.
 
 | `type` | Extra fields | Returns |
 |---|---|---|
@@ -83,10 +85,24 @@ Compute exact values with the graph engine instead of doing the arithmetic in th
 | `area_between` | `g`, `a`, `b` | area between the two curves |
 | `arc_length` | `a`, `b` | curve length over [a, b] |
 | `closest_point` | `px`, `py` | point on f nearest to (px, py) |
+| `solve_system` | `matrix`, `vector` | solution of A x = b — reports unique / none / infinitely many |
+| `determinant` | `matrix` | det(A) |
+| `inverse` | `matrix` | A⁻¹ (errors on a singular matrix rather than returning nonsense) |
+| `transpose` | `matrix` | Aᵀ |
+| `rank` | `matrix` | rank of A |
+| `multiply` | `matrix`, `matrix2` | matrix product A·B |
 
-**Supports:** explicit, parametric, polar, and implicit curves. For parametric curves `x` is the t value.
+**Supports:** explicit, parametric, polar, and implicit curves. For parametric curves `x` is the t value. Matrices are capped at 400 cells.
 
 **Example:** `{"type":"intersect", "f":"x^2-4", "g":"2x-1"}`
+
+### `get_graph` — Inspect a Graph
+
+Retrieve the elements and viewport of an existing 2D render. Element indices come back in order, so you can pass them to `remove_indices`.
+
+**Input:** `render_id` (the 10-character code in a plot_graph URL).
+
+**Returns:** element list, viewport, and a one-line summary of what the graph holds.
 
 ### `plot_3d` — 3D Scene Builder
 
