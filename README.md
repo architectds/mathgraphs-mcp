@@ -94,7 +94,10 @@ Compute exact values with the graph engine instead of doing the arithmetic in th
 
 **Supports:** explicit, parametric, polar, and implicit curves. For parametric curves `x` is the t value. Matrices are capped at 400 cells.
 
-**Example:** `{"type":"intersect", "f":"x^2-4", "g":"2x-1"}`
+**Draw the result:** add `plot: true` (and an optional `title`) to get an interactive graph URL and thumbnail with the answer already marked — roots and intersections as labelled points, tangent and normal as lines, `closest_point` joined to its target, `integral` and `arc_length` with their bounds on the curve. Saves transcribing coordinates into a second `plot_graph` call. The linear-algebra types ignore it.
+
+
+**Example:** `{"type":"intersect", "f":"x^2-4", "g":"2x-1", "plot":true}`
 
 ### `get_graph` — Inspect a Graph
 

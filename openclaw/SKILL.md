@@ -59,6 +59,8 @@ Works with explicit, parametric, polar, and implicit curves.
 
 Linear algebra (pass `matrix` instead of `f`): `solve_system` (with `vector`), `determinant`, `inverse`, `transpose`, `rank`, `multiply` (with `matrix2`). solve_system reports unique / none / infinitely many solutions.
 
+Add `plot: true` to get the answer drawn as well — the graph comes back with the roots, intersections, tangent, or closest point already marked, so you never have to copy coordinates into a `plot_graph` call. Ignored by the linear-algebra types.
+
 
 ### `get_graph` — Inspect a Graph
 Read back the elements and viewport of an existing 2D render by ID. Element indices come back in order — pass them to `remove_indices` to modify a graph instead of rebuilding it.

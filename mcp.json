@@ -1,7 +1,7 @@
 {
   "manifest_version": "0.3",
   "name": "mathtalking",
-  "version": "2.4.0",
+  "version": "2.5.0",
   "display_name": "MathTalking — Interactive Math Graphs & 3D Scenes",
   "description": "MCP server for interactive math graphing, 3D scene building, and presentations. Plot functions (explicit, implicit, parametric, polar), build 3D scenes from 11 mesh shapes + 36 compound presets + mathematical surfaces z=f(x,y), and create slideshows. Returns interactive URLs with inline PNG thumbnails. Mathematically precise, not AI-generated. Zero install, browser-native.",
   "author": {
@@ -35,7 +35,7 @@
     },
     {
       "name": "analyze",
-      "description": "Get precise numerical results — do NOT compute these yourself. Function analysis: roots, extrema, inflections, intersections, tangent/normal lines, derivatives, integrals, area between curves, arc length, closest point, on explicit, parametric, polar, and implicit curves. Linear algebra: solve a linear system, determinant, inverse, transpose, rank, matrix product. Computed server-side by the graph engine, so answers are exact rather than estimated."
+      "description": "Get precise numerical results — do NOT compute these yourself. Function analysis: roots, extrema, inflections, intersections, tangent/normal lines, derivatives, integrals, area between curves, arc length, closest point, on explicit, parametric, polar, and implicit curves. Linear algebra: solve a linear system, determinant, inverse, transpose, rank, matrix product. Computed server-side by the graph engine, so answers are exact rather than estimated. Pass plot:true to get the result already drawn — an interactive graph URL plus thumbnail with roots, intersections, tangents, or the closest point marked on it — instead of copying coordinates into a separate plot_graph call."
     },
     {
       "name": "plot_3d",
