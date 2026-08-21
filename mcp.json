@@ -1,7 +1,7 @@
 {
   "manifest_version": "0.3",
   "name": "mathtalking",
-  "version": "2.5.0",
+  "version": "2.6.0",
   "display_name": "MathTalking — Interactive Math Graphs & 3D Scenes",
   "description": "MCP server for interactive math graphing, 3D scene building, and presentations. Plot functions (explicit, implicit, parametric, polar), build 3D scenes from 11 mesh shapes + 36 compound presets + mathematical surfaces z=f(x,y), and create slideshows. Returns interactive URLs with inline PNG thumbnails. Mathematically precise, not AI-generated. Zero install, browser-native.",
   "author": {
@@ -35,7 +35,11 @@
     },
     {
       "name": "analyze",
-      "description": "Get precise numerical results — do NOT compute these yourself. Function analysis: roots, extrema, inflections, intersections, tangent/normal lines, derivatives, integrals, area between curves, arc length, closest point, on explicit, parametric, polar, and implicit curves. Linear algebra: solve a linear system, determinant, inverse, transpose, rank, matrix product. Computed server-side by the graph engine, so answers are exact rather than estimated. Pass plot:true to get the result already drawn — an interactive graph URL plus thumbnail with roots, intersections, tangents, or the closest point marked on it — instead of copying coordinates into a separate plot_graph call."
+      "description": "Answer a question about a curve with an exact number — do NOT work it out yourself. Roots, extrema, inflections, intersections, tangent and normal lines, derivatives, integrals, area between curves, arc length, closest point, on explicit, parametric, polar, and implicit curves. Reach for this when the answer IS a number and a graph is optional (pass plot:true to get it drawn with the result already marked). Reach for plot_graph when the answer is a picture."
+    },
+    {
+      "name": "net_generator",
+      "description": "Unfold a 3D solid into its printable 2D net, and return its volume, surface area, and the worked formulas. Also the right tool when you only want the volume or surface area of a standard solid. Covers cylinder, cube, cone, square pyramid, triangular prism, rectangular prism, and the four Platonic solids. A sphere has no planar net."
     },
     {
       "name": "plot_3d",

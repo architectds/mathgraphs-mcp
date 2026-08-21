@@ -70,7 +70,7 @@ Plot functions, points, segments, labels, and shapes on an interactive graph. Au
 
 Compute exact values with the graph engine instead of doing the arithmetic in the model. Returns numbers, not a picture.
 
-**Input:** `type` (required). Function analyses also need `f`; linear-algebra analyses need `matrix` instead.
+**Input:** `type` and `f` (both required), plus whichever fields that analysis needs:
 
 | `type` | Extra fields | Returns |
 |---|---|---|
@@ -85,14 +85,8 @@ Compute exact values with the graph engine instead of doing the arithmetic in th
 | `area_between` | `g`, `a`, `b` | area between the two curves |
 | `arc_length` | `a`, `b` | curve length over [a, b] |
 | `closest_point` | `px`, `py` | point on f nearest to (px, py) |
-| `solve_system` | `matrix`, `vector` | solution of A x = b — reports unique / none / infinitely many |
-| `determinant` | `matrix` | det(A) |
-| `inverse` | `matrix` | A⁻¹ (errors on a singular matrix rather than returning nonsense) |
-| `transpose` | `matrix` | Aᵀ |
-| `rank` | `matrix` | rank of A |
-| `multiply` | `matrix`, `matrix2` | matrix product A·B |
 
-**Supports:** explicit, parametric, polar, and implicit curves. For parametric curves `x` is the t value. Matrices are capped at 400 cells.
+**Supports:** explicit, parametric, polar, and implicit curves. For parametric curves `x` is the t value.
 
 **Draw the result:** add `plot: true` (and an optional `title`) to get an interactive graph URL and thumbnail with the answer already marked — roots and intersections as labelled points, tangent and normal as lines, `closest_point` joined to its target, `integral` and `arc_length` with their bounds on the curve. Saves transcribing coordinates into a second `plot_graph` call. The linear-algebra types ignore it.
 
@@ -106,6 +100,31 @@ Retrieve the elements and viewport of an existing 2D render. Element indices com
 **Input:** `render_id` (the 10-character code in a plot_graph URL).
 
 **Returns:** element list, viewport, and a one-line summary of what the graph holds.
+
+### `net_generator` — Shape Nets, Volume & Surface Area
+
+Unfold a solid into its printable 2D net, with the measurements worked out.
+
+**Input:** `shape` (required) and `dims`:
+
+| `shape` | `dims` |
+|---|---|
+| `cylinder`, `cone` | `r`, `h` (cone also accepts `r` + `slant`) |
+| `cube` | `a` |
+| `square_pyramid` | `a` (base edge), `h` |
+| `triangular_prism` | `a` (base edge), `l` (length) |
+| `rectangular_prism` | `w`, `h`, `d` |
+| `tetrahedron`, `octahedron`, `icosahedron`, `dodecahedron` | `a` (edge) |
+
+Spelled-out keys work too (`radius`, `height`, `side`, `width`, `depth`, `length`). Give every dimension the shape needs — a partial set is rejected, so a mistyped key cannot quietly produce the wrong net. Omit `dims` entirely to get an example at default sizes; the reply says when it did that.
+
+**Optional:** `unit` (`cm` | `m` | `in` | `ft`), `title`, `output` (`url` | `embed` | `svg`).
+
+**Returns:** the net as an interactive URL and thumbnail, plus volume, surface area, and the substituted formulas.
+
+**Example:** `{"shape":"cylinder", "dims":{"r":3,"h":5}, "unit":"cm"}` → volume 141.37 cm³, surface area 150.80 cm², printable net.
+
+A sphere has no planar net — use `plot_3d` for spheres.
 
 ### `plot_3d` — 3D Scene Builder
 
@@ -169,6 +188,24 @@ Bundle multiple `plot_graph` results into a slideshow. Create each slide with `p
 2. **"Build a village with a red house, trees, and a campfire"** → 3D scene with Chinese-style house (red color triggers Chinese variant), PNG thumbnail in chat
 3. **"Plot the surface z = sin(x) * cos(y)"** → Interactive 3D surface plot with orbit controls
 4. **"Create a 3-slide show: y=x², y=x²+2 shifted up, y=(x-3)² shifted right"** → Slideshow URL with navigation
+
+## The Same Tools on the Web
+
+Several MathTalking pages are the browser form of a call you can make here. If you are answering the same question an agent would, the tool call is usually faster than pointing someone at the page — and both compute with the same engine.
+
+| Web page | Equivalent call |
+|---|---|
+| [Quadratic Roots](https://mathtalking.com/math/quadratic-roots-en), [Root Finder](https://mathtalking.com/math/root-finder-en) | `analyze {type: "roots", f}` |
+| [Function Intersection](https://mathtalking.com/math/function-intersection-en) | `analyze {type: "intersect", f, g}` |
+| [Tangent Calculator](https://mathtalking.com/math/tangent-calculator-en) | `analyze {type: "tangent", f, x}` |
+| [Area Between Curves](https://mathtalking.com/math/area-between-curves-en) | `analyze {type: "area_between", f, g, a, b}` |
+| [Arc Length](https://mathtalking.com/math/arc-length-calculator-en) | `analyze {type: "arc_length", f, a, b}` |
+| [Closest Point](https://mathtalking.com/math/closest-point-calculator-en) | `analyze {type: "closest_point", f, px, py}` |
+| [3D Net Generator](https://mathtalking.com/math/3d-net-generator-en) and the shape-net pages | `net_generator {shape, dims}` |
+
+Add `plot: true` to an `analyze` call to get the same picture the page shows.
+
+Statistics pages that need a dataset (histogram, regression, box plot, distribution fitting) have no tool call on purpose: sending raw rows through a model costs a token per data point. Point people at [mathtalking.com/stat](https://mathtalking.com/stat), where the data stays on their device.
 
 ## When to Use
 
